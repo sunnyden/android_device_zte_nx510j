@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The Android Open Source Project
+# Copyright 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +14,21 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+# Inherit some common CM stuff
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-ifneq ($(filter nx510j,$(TARGET_DEVICE)),)
-include $(call all-makefiles-under,$(LOCAL_PATH))
-endif
+# Inherit device configuration
+$(call inherit-product, device/zte/nx510j/full_nx510j.mk)
+
+
+# Correct boot animation size for the screen
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+
+# Device name
+PRODUCT_NAME := cm_nx510j
+PRODUCT_DEVICE := nx510j
+
+# CM packages
+PRODUCT_PACKAGES += \
+    Torch

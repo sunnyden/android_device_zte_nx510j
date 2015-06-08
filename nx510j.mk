@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-$(call inherit-product-if-exists, vendor/lge/z2-common/z2-common-vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
+$(call inherit-product-if-exists, vendor/zte/nx510j/nx510j-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -150,8 +150,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/sensor_def_common.conf:system/etc/sensors/sensor_def_common.conf \
-    $(LOCAL_PATH)/configs/sensors/sensor_def_variable.conf:system/etc/sensors/sensor_def_variable.conf
+    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -204,38 +203,30 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.z2 \
-    init.z2.rc \
-    init.z2.usb.rc \
-    ueventd.z2.rc
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    ueventd.qcom.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.betaz.bt_vendor.rc:root/init.betaz.bt_vendor.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.betaz.crash.sh:root/init.betaz.crash.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.betaz.sensor.sh:root/init.betaz.sensor.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.betaz_core.rc:root/init.betaz_core.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.class_main.sh:root/init.class_main.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.audio.rc:root/init.lge.audio.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.cmm.usb.sh:root/init.lge.cmm.usb.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.display.oled.sh:root/init.lge.display.oled.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.early.rc:root/init.lge.early.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.log.rc:root/init.lge.log.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.modem_log.rc:root/init.lge.modem_log.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.rc:root/init.lge.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.svelte.rc:root/init.lge.svelte.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.usb.sh:root/init.lge.usb.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.mdm.sh:root/init.mdm.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.factory.sh:root/init.qcom.factory.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.sh:root/init.qcom.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.recovery.z2.rc:root/init.recovery.z2.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.z2_core.rc:root/init.z2_core.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.z2_product.rc:root/init.z2_product.rc
+    $(LOCAL_PATH)/rootdir/init.class_main.sh:root/init.class_main.sh \
+	$(LOCAL_PATH)/rootdir/init.mdm.sh:root/init.mdm.sh \
+	$(LOCAL_PATH)/rootdir/init.nubia.sh:root/init.nubia.sh \
+	$(LOCAL_PATH)/rootdir/init.powermo.rc:root/init.powermo.rc \
+	$(LOCAL_PATH)/rootdir/init.poweroffcharge.rc:root/init.poweroffcharge.rc \
+	$(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
+	$(LOCAL_PATH)/rootdir/init.qcom.class_core.sh:root/init.qcom.class_core.rc \
+	$(LOCAL_PATH)/rootdir/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
+	$(LOCAL_PATH)/rootdir/init.qcom.factory.sh:root/init.qcom.factory.sh \
+	$(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
+	$(LOCAL_PATH)/rootdir/init.qcom.sh:root/init.qcom.sh \
+	$(LOCAL_PATH)/rootdir/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
+	$(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	$(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.qcom.usb.sh \
+	$(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
+	$(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
+
+
 
 # USB
 PRODUCT_PACKAGES += \
