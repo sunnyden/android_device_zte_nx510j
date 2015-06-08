@@ -46,7 +46,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 # System properties
--include $(LOCAL_PATH)/system_prop.mk
+#-include $(LOCAL_PATH)/system_prop.mk
 
 # MTP and USB-OTG
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
