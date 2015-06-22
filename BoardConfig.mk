@@ -47,7 +47,7 @@ BOARD_KERNEL_CMDLINE := ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboo
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 #BOARD_KERNEL_SEPARATED_DT := true
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x2000000 --dt device/nubia/NX510J/dt_image
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x2000000 --dt device/zte/nx510j/dt_image
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/zte/nx510j
